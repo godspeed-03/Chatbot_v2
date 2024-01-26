@@ -20,7 +20,7 @@ const Login = () => {
 
     if (user) {
       // alert('Login successful!');
-      window.location.href = "./Homepage"; // Redirect to the desired page
+      window.location.href = "./homepage"; // Redirect to the desired page
 
       const logger = JSON.parse(sessionStorage.getItem("logger")) || [];
       const newlogger = {
