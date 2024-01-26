@@ -44,7 +44,7 @@ const Sharepost = ({ url, author }) => {
       {isModalOpen ? (
         <>
           <div className="flex absolute justify-center items-center">
-            <div className="absolute w-72 bg-white p-4 rounded-lg shadow-lg">
+            <div className="absolute sm:w-72 w-60 bg-white p-4 rounded-lg shadow-lg">
               <header className="flex items-center justify-between pb-4 border-b border-gray-300">
                 <span className="text-xl font-semibold">Share Post</span>
                 <div

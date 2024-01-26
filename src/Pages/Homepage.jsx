@@ -14,7 +14,7 @@ const Homepage = () => {
   return (
     <>
       <Search />
-      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 object-contain md:mx-32 sm:mx-24 mx-16 py-20">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 object-contain md:mx-32 sm:mx-28 mx-24 py-20">
         {photo.map((item) => {
           const { alt, url, src, photographer, id } = item;
           return (
