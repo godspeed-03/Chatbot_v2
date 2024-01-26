@@ -4,9 +4,10 @@ import reducer from './reducer';
 import FetchDatabyQuery from './API';
 
 
-const initialState = {
+let initialState = {
   query: '',
   photo: [],
+  UserName : 'Guest'
   
 };
 
@@ -32,19 +33,19 @@ const AppProvider = ({ children }) => {
     }
   };
 
-  const removepost = (photoid) => {
-    dispatch({
-      type: "remove_post",
-      payload: photoid,
-    });
-  };
-
   const searchpost = (searchquery) => {
     dispatch({
       type: "Searchpost",
       payload: searchquery,
     });
   };
+
+  const userName = (UserName) => {
+    dispatch({
+      type:"UserName",
+      payload : UserName,
+    })
+  }
 
   useEffect(() => {
     fetchApiData();
@@ -53,7 +54,7 @@ const AppProvider = ({ children }) => {
   // console.log(state)
 
   return (
-    <AppContext.Provider value={{ ...state, removepost, searchpost }}>
+    <AppContext.Provider value={{ ...state, searchpost, userName }}>
       {children}
     </AppContext.Provider>
   );

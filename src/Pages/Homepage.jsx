@@ -2,17 +2,16 @@ import { useState } from "react";
 import { useApiData } from "../Utils/Context";
 import Search from "./Search";
 import { FaEye } from "react-icons/fa";
-
-
-import { MdDelete } from "react-icons/md";
 import Sharepost from "../Components/Sharepost";
+import Header from "../Components/Header";
 
 const Homepage = () => {
-  const { photo, removepost } = useApiData();
+  const { photo} = useApiData();
   
   console.log(photo);
   return (
     <>
+    <Header />
       <Search />
       <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 object-contain md:mx-32 sm:mx-28 mx-24 py-20">
         {photo.map((item) => {
@@ -39,7 +38,7 @@ const Homepage = () => {
                 
 
                   </span>
-                <a href={url}>
+                <a href={url} target="_blank">
                   <span className="delete">
                     <FaEye />
                   </span>

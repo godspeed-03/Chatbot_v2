@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useApiData } from "../../Utils/Context";
 
 const Login = () => {
+//  let {UserName}= useApiData()
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState();
   // Use useNavigate instead of useHistory
@@ -18,16 +20,20 @@ const Login = () => {
 
     if (user) {
       // Use navigate function instead of history.push
-      navigate("/homepage");
+      navigate("/");
+      // UserName ='local'
+      // console.log(user.name)
 
       const logger = JSON.parse(sessionStorage.getItem("logger")) || [];
       const newlogger = {
+        name: name,
         username: username,
-        password: password,
       };
 
       logger.push(newlogger);
       sessionStorage.setItem("logger", JSON.stringify(logger));
+
+      // console.log(logger)
     } else {
       alert("Invalid username or password. Please try again.");
     }
