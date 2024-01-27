@@ -21,15 +21,15 @@ const Sharepost = ({ url, author }) => {
   const [inputValue, setInputValue] = useState(url);
   const postInfo = `${author}'s post: ${url}`;
 
-  const copyToClipboard = () => {
-    const input = document.getElementById("urlInput");
-    input.select();
-    document.execCommand("copy");
-
-    input.classList.add("active");
-    setTimeout(() => {
-      input.classList.remove("active");
-    }, 3000);
+  const copyToClipboard = (text) => {
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        console.log("Text copied to clipboard:", text);
+      })
+      .catch((error) => {
+        console.error("Error copying to clipboard:", error);
+      });
   };
 
   const closeModal = () => {
@@ -48,12 +48,11 @@ const Sharepost = ({ url, author }) => {
                   className="flex items-center cursor-pointer"
                   onClick={closeModal}
                 >
-                  <i className="uil uil-times text-gray-600 bg-gray-200 h-10 w-10 flex items-center justify-center rounded-full transition duration-300 hover:bg-gray-300">
+                  <i className=" text-gray-600 bg-gray-200 h-10 w-10 flex items-center justify-center rounded-full transition duration-300 hover:bg-gray-300">
                     <IoMdClose />
                   </i>
                 </div>
               </header>
-              {/* Content */}
               <div className="content mt-5">
                 <p className="text-base">Share this post via</p>
                 <ul className="icons flex gap-3 my-2">
@@ -78,23 +77,10 @@ const Sharepost = ({ url, author }) => {
                   </LinkedinShareButton>
                 </ul>
                 <p className="text-base">Or copy link</p>
-                <div className="field mt-2 relative flex justify-center items-center">
-                  <i className="url-icon uil uil-link absolute left-0 top-1/2 transform -translate-y-1/2 text-gray-600 pl-2">
-                    <FaLink />
+                <div className="field mt-2 relative flex justify-start items-center">
+                  <i className=" text-gray-600 bg-gray-200 h-10 w-10 flex items-center justify-center rounded-full transition duration-300 hover:bg-gray-300 active:text-blue-600">
+                    <FaLink onClick={() => copyToClipboard(url)} />
                   </i>
-                  <input
-                    id="urlInput"
-                    type="text"
-                    readOnly
-                    value={inputValue}
-                    className="w-full h-full border-2 border-gray-400 pl-8 rounded-md "
-                  />
-                  <button
-                    onClick={copyToClipboard}
-                    className="text-white px-2 py-1 text-center bg-purple-700 rounded-md ml-2"
-                  >
-                    Copy
-                  </button>
                 </div>
               </div>
             </div>

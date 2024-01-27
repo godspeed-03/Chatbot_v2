@@ -3,15 +3,15 @@ import { Link, useNavigate } from "react-router-dom";
 import { useApiData } from "../../Utils/Context";
 
 const Login = () => {
-  //  let {UserName}= useApiData()
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState();
-  // Use useNavigate instead of useHistory
   const navigate = useNavigate();
 
+  // form submit actions
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    // get users from local storage
     const users = JSON.parse(localStorage.getItem("users")) || [];
     const user = users.find(
       (user) => user.username === username && user.password === password
@@ -19,10 +19,9 @@ const Login = () => {
 
     if (user) {
       navigate("/");
-
+ // onlogin create session storage and save username
       const logger = JSON.parse(sessionStorage.getItem("logger")) || [];
       const newlogger = {
-        name: name,
         username: username,
       };
 
@@ -42,12 +41,12 @@ const Login = () => {
         <form onSubmit={handleSubmit} className="mb-4">
           <div className="mb-4 md:w-full">
             <label htmlFor="email" className="block text-xs mb-1">
-              Username or Email
+              Username
             </label>
             <input
               className="w-full border rounded p-2 outline-none focus:shadow-outline"
               type="text"
-              placeholder="Username, mail, or Phone Number"
+              placeholder="Username"
               required
               value={username}
               onChange={(e) => setUsername(e.target.value)}

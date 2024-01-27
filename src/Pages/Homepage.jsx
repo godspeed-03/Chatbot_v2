@@ -1,10 +1,9 @@
-import { useState } from "react";
 import { useApiData } from "../Utils/Context";
 import Search from "./Search";
 import { FaEye } from "react-icons/fa";
 import Sharepost from "../Components/Sharepost";
 import Header from "../Components/Header";
-import Chat from "../Components/Chatbot/Chat";
+import ChatBot from "../Components/Chatbot/ChatBot";
 
 const Homepage = () => {
   const { photo } = useApiData();
@@ -46,7 +45,7 @@ const Homepage = () => {
           );
         })}
       </div>
-      <Chat />
+      <ChatBot />
     </>
   );
 };

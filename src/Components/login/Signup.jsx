@@ -9,11 +9,15 @@ const SignUp = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+
+  // singup  form action method
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    // create localstorage db
     const users = JSON.parse(localStorage.getItem("users")) || [];
 
+    //check for username
     const existingUser = users.find((user) => user.username === username);
 
     if (existingUser) {
@@ -24,6 +28,7 @@ const SignUp = () => {
         sno = sno + 1;
       }
 
+      // schema for user signup
       const newUser = {
         sno: sno,
         name: name,

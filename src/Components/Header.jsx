@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+
+  //get username from session storage
   const storedLogger = JSON.parse(sessionStorage.getItem("logger")) || [];
   let loggeduser = storedLogger[0]?.username;
 
