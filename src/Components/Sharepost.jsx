@@ -16,7 +16,6 @@ import {
   WhatsappIcon,
 } from "react-share";
 
-
 const Sharepost = ({ url, author }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [inputValue, setInputValue] = useState(url);
@@ -27,7 +26,6 @@ const Sharepost = ({ url, author }) => {
     input.select();
     document.execCommand("copy");
 
-    // Add feedback to the user
     input.classList.add("active");
     setTimeout(() => {
       input.classList.remove("active");

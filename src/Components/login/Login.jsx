@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useApiData } from "../../Utils/Context";
 
 const Login = () => {
-//  let {UserName}= useApiData()
+  //  let {UserName}= useApiData()
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState();
   // Use useNavigate instead of useHistory
@@ -12,17 +12,13 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Perform your login logic here
     const users = JSON.parse(localStorage.getItem("users")) || [];
     const user = users.find(
       (user) => user.username === username && user.password === password
     );
 
     if (user) {
-      // Use navigate function instead of history.push
       navigate("/");
-      // UserName ='local'
-      // console.log(user.name)
 
       const logger = JSON.parse(sessionStorage.getItem("logger")) || [];
       const newlogger = {
@@ -32,8 +28,6 @@ const Login = () => {
 
       logger.push(newlogger);
       sessionStorage.setItem("logger", JSON.stringify(logger));
-
-      // console.log(logger)
     } else {
       alert("Invalid username or password. Please try again.");
     }

@@ -1,5 +1,4 @@
 const reducer = (state, action) => {
-  // console.log(state)
   switch (action.type) {
     case "Get_Photos":
       return {
@@ -21,11 +20,11 @@ const reducer = (state, action) => {
         query: action.payload,
       };
 
-      case "UserName" :
-        return{
-          ...state,
-          UserName: action.payload,
-        }
+    case "UserName":
+      return {
+        ...state,
+        UserName: action.payload,
+      };
   }
   return state;
 };

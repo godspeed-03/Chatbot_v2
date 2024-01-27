@@ -4,15 +4,14 @@ import Search from "./Search";
 import { FaEye } from "react-icons/fa";
 import Sharepost from "../Components/Sharepost";
 import Header from "../Components/Header";
-import Chat from "./Chatbot";
+import Chat from "../Components/Chatbot/Chat";
 
 const Homepage = () => {
-  const { photo} = useApiData();
-  
-  console.log(photo);
+  const { photo } = useApiData();
+
   return (
     <>
-    <Header />
+      <Header />
       <Search />
       <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 object-contain md:mx-32 sm:mx-28 mx-24 py-20">
         {photo.map((item) => {
@@ -34,18 +33,14 @@ const Homepage = () => {
               </p>
 
               <div className="buttons flex items-center justify-between pt-3 px-3">
-              <span className="share">
-                                  <Sharepost  url={url} author={photographer} />
-                
-
-                  </span>
+                <span className="share">
+                  <Sharepost url={url} author={photographer} />
+                </span>
                 <a href={url} target="_blank">
                   <span className="delete">
                     <FaEye />
                   </span>
                 </a>
-                
-
               </div>
             </div>
           );
@@ -53,10 +48,6 @@ const Homepage = () => {
       </div>
       <Chat />
     </>
-
-                //     {/* <span className="veiwmore" onClick={() => removepost(id)}>
-                //   <MdDelete />
-                // </span> */}
   );
 };
 

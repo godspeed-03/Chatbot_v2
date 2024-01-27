@@ -1,27 +1,21 @@
-// File: AppContext.tsx
-import { createContext,  useReducer, useEffect, useContext } from 'react';
-import reducer from './reducer';
-import FetchDatabyQuery from './API';
-
+import { createContext, useReducer, useEffect, useContext } from "react";
+import reducer from "./reducer";
+import FetchDatabyQuery from "./API";
 
 let initialState = {
-  query: '',
+  query: "",
   photo: [],
-  UserName : 'Guest'
-  
+  UserName: "Guest",
 };
-
 
 const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-
   const fetchApiData = async () => {
     try {
       const result = await FetchDatabyQuery(state.query);
-      // console.log(result)
       dispatch({
         type: "Get_Photos",
         payload: {
@@ -42,16 +36,14 @@ const AppProvider = ({ children }) => {
 
   const userName = (UserName) => {
     dispatch({
-      type:"UserName",
-      payload : UserName,
-    })
-  }
+      type: "UserName",
+      payload: UserName,
+    });
+  };
 
   useEffect(() => {
     fetchApiData();
   }, [state.query]);
-
-  // console.log(state)
 
   return (
     <AppContext.Provider value={{ ...state, searchpost, userName }}>
@@ -60,12 +52,10 @@ const AppProvider = ({ children }) => {
   );
 };
 
-// console.log(typeof AppContext)
-
- const useApiData = () => {
+const useApiData = () => {
   const context = useContext(AppContext);
   if (!context) {
-    throw new Error('useApiData must be used within an AppProvider');
+    throw new Error("useApiData must be used within an AppProvider");
   }
   return context;
 };

@@ -1,25 +1,22 @@
-// File: FetchDatabyQuery.ts
-
-const baseurl = 'https://api.pexels.com/v1/';
-const apikey = 'w66iKT1LBq0iS8JizlkrFongmhLcheuQZ7gTKwDDDUp7c35MklAdnx7q';
+const baseurl = "https://api.pexels.com/v1/";
 
 const FetchDatabyQuery = async (query) => {
-  // console.log(query);
-
   try {
     const headers = {
-      Authorization: apikey,
+      Authorization: import.meta.env.VITE_APIKEY,
     };
 
     if (query) {
-      const response = await fetch(`${baseurl}search?query=${query}&per_page=40`, { headers });
+      const response = await fetch(
+        `${baseurl}search?query=${query}&per_page=40`,
+        { headers }
+      );
 
       if (!response.ok) {
         throw new Error("Data can't be fetched error...");
       }
 
       const data = await response.json();
-      // console.log(data);
       return data;
     } else {
       const response = await fetch(`${baseurl}curated`, { headers });
