@@ -12,48 +12,33 @@ const Header = () => {
 
   const navigate = useNavigate();
 
-  const handleOptionSelect = (event) => {
-    const selectedOption = event.target.value;
-    if (selectedOption === "login") {
-      navigate("/login");
-    } else if (selectedOption === "logout") {
-      sessionStorage.clear();
-      navigate("/");
-    }
-  };
+  const gotologin = () => {
+    navigate('/login')
+  }
+
+  const logout = () =>{
+    sessionStorage.clear()
+    navigate('/')
+  }
+
 
   return (
-    <>
-      <div
-        className={`header flex items-center justify-between py-5
-    ${mobile ? "bg-yellow-500" : "bg-sky-300"}`}
-      >
+
+<div className="header flex items-center justify-between px-5 bg-cyan-600 h-16">
         <div className="logo">LOGO</div>
-        <nav>
-          <div>
-            <select id="menu" onChange={handleOptionSelect}>
-              <option value="">{loggeduser ? loggeduser : "Guest"}</option>
-              {loggeduser ? (
-                <option value="logout">Logout</option>
-              ) : (
-                <option value="login">Login</option>
-              )}
-            </select>
-          </div>
-        </nav>
-        <div className="md:hidden">
-          {mobile ? (
-            <span className="font-bold p-2" onClick={() => setMobile(false)}>
-              C
-            </span>
-          ) : (
-            <span className="font-bold p-2" onClick={() => openmobile()}>
-              O
-            </span>
-          )}
+        <div className="welcome-message font-bold font-mono sm:text-xl text-center">
+          Welome to ImageBook, {loggeduser ? loggeduser : "Guest"}
         </div>
-      </div>
-    </>
+        <div className="option bg-gray-300 border p-2 text-black font-semibold rounded-lg">
+        {loggeduser ? (
+                <button onClick={logout} value="logout">Logout</button>
+              ) : (
+                <button onClick={gotologin} value="login">Login</button>
+              )}
+        </div>
+        </div>
+        
+  
   );
 };
 

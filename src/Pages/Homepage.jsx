@@ -4,6 +4,7 @@ import Search from "./Search";
 import { FaEye } from "react-icons/fa";
 import Sharepost from "../Components/Sharepost";
 import Header from "../Components/Header";
+import Chat from "./Chatbot";
 
 const Homepage = () => {
   const { photo} = useApiData();
@@ -50,6 +51,7 @@ const Homepage = () => {
           );
         })}
       </div>
+      <Chat />
     </>
 
                 //     {/* <span className="veiwmore" onClick={() => removepost(id)}>

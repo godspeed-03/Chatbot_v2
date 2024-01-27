@@ -16,7 +16,6 @@ import {
   WhatsappIcon,
 } from "react-share";
 
-import Modal from "react-modal";
 
 const Sharepost = ({ url, author }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
