@@ -52,8 +52,6 @@ const Chat = () => {
     
 
     setUndoHistory([...undoHistory, { user: true, text: userInput }, { user: false, text: botResponse }]);
-    setRedoHistory([]);
-
     setUserInput('');
     setIsLoading(false);
   };
