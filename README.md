@@ -3,8 +3,8 @@
 
 
 [ImageBook](https://imagebookio.netlify.app/) is a platform where you can interact with several images from PEXELS API.
-It also has a inetractive ChatBot in which you can ask questions after loging in.
-Also you can share any aimage if you like from the homepage by clicking the share button.
+It also has a inetractive ChatBot in which you can ask questions after you log-in in the app.
+Also you can share any image if you like from the homepage by clicking the share button.
 
 ```sh
  Check live at : https://imagebookio.netlify.app/
@@ -34,10 +34,10 @@ Also you can share any aimage if you like from the homepage by clicking the shar
 
 Imagebook  is made using following stack:
 
-- [ReactJS] - HTML enhanced for web apps!
+- [React JS] - HTML enhanced for web apps!
 - [Taiwind CSS] - A CSS utility calss
-- [React-share] - To create share links methods of different social media app.
-- [React-router-dom] - To create navigation between Pages.
+- [React share] - To create share links methods of different social media app.
+- [React router dom] - To create navigation between Pages.
 
 And of course Imagebook itself is [public repository](https://github.com/godspeed-03/Chatbot_v2.git)  on GitHub.
 
@@ -51,14 +51,24 @@ Install the dependencies and devDependencies and start the server.
 git clone https://github.com/godspeed-03/Chatbot_v2.git
 cd Chatbot_v2
 npm i
-npm run dev
 ```
 
 For environments...
-Go to [Pexels](https://api.pexels.com/v1/) and singup for access tokes
+Go to [Pexels](https://api.pexels.com/v1/) and singup for access tokens
 ```sh
 VITE_APIKEY = " your access token"
 ```
+
+To run the application :
+```sh
+npm run dev
+```
+
+To create Build file of the application :
+```sh
+npm run build
+```
+
 ## Overall
 
 1. Technologies and Libraries:
