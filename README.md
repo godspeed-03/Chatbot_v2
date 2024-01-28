@@ -1,10 +1,14 @@
-# ImageBook
+# [ImageBook](https://imagebookio.netlify.app/)
 ## _The image store with chatbot_
 
 
-ImageBook is a platform where you can interact with several images from PEXELS API.
+[ImageBook](https://imagebookio.netlify.app/) is a platform where you can interact with several images from PEXELS API.
 It also has a inetractive ChatBot in which you can ask questions after loging in.
 Also you can share any aimage if you like from the homepage by clicking the share button.
+
+```sh
+ Check live at : https://imagebookio.netlify.app/
+ ```
 
 
 - Search image of your choice
