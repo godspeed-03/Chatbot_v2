@@ -111,11 +111,11 @@ const ChatBotMessage = ({ setIsActive }) => {
 
   return (
     <div
-      className="border rounded-lg bg-white shadow-2xl p-4 w-96 overflow-auto h-[80vh]"
+      className="border rounded-lg bg-white shadow-2xl p-4 sm:w-96 w-80 overflow-auto h-[80vh]"
       ref={chatContainerRef}
     >
       <ChatBotHeader />
-      <div className="flex flex-col space-y-4 mt-14 mb-28">
+      <div className="flex flex-col space-y-4 mt-14 sm:mb-28 mb-24">
         {chatHistory.map((message, index) => (
           <div
             key={index}
@@ -143,24 +143,24 @@ const ChatBotMessage = ({ setIsActive }) => {
           <div className="p-2 rounded bg-gray-300 text-gray-600 self-start">
             {chatHistory.length % 2 === 1 && (
               <>
-                <div className="animate-pulse h-4  w-80 bg-gray-400 mb-2"></div>
-                <div className="animate-pulse h-4 w-80 bg-gray-400"></div>
+                <div className="animate-pulse h-4  sm:w-80 w-60 bg-gray-400 mb-2"></div>
+                <div className="animate-pulse h-4 sm:w-80 w-60 bg-gray-400"></div>
               </>
             )}
           </div>
         )}
       </div>
-      <div className="p-4 fixed bottom-[17px] w-[350px] bg-white">
-        <div className="actionbutton flex items-center gap-40 mb-2">
+      <div className=" sm:p-4 pb-2 fixed bottom-[17px] sm:w-[350px] w-[300px] bg-white">
+        <div className="actionbutton flex items-center gap-[150px] mb-2">
           <button
             onClick={handleUndo}
-            className="p-1 bg-cyan-500 text-white rounded"
+            className="p-2 bg-blue-500 text-white rounded"
           >
             Undo
           </button>
           <button
             onClick={handleRedo}
-            className="p-1 bg-cyan-500 text-white rounded"
+            className="p-2 bg-blue-500 text-white rounded"
           >
             {" "}
             Redo
@@ -173,7 +173,7 @@ const ChatBotMessage = ({ setIsActive }) => {
             onChange={(e) => setUserInput(e.target.value)}
             onKeyDown={handleKeyPress}
             placeholder="Type your message..."
-            className="p-2 border border-gray-300 mr-2"
+            className="p-2 border border-gray-300 sm:mr-2 mr-1"
           />
           <button
             onClick={handleUserInput}
@@ -182,7 +182,7 @@ const ChatBotMessage = ({ setIsActive }) => {
             Send
           </button>
           <div
-            className="flex items-center cursor-pointer ml-5"
+            className="flex items-center cursor-pointer sm:ml-5 ml-1"
             onClick={() => setIsActive(false)}
           >
             <i className="uil uil-times text-gray-600 bg-gray-200 h-10 w-10 flex items-center justify-center rounded-full transition duration-300 hover:bg-gray-300">

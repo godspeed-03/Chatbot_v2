@@ -1,6 +1,6 @@
 import React from "react";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import logo from '../assets/logo.jpeg'
 
 const Header = () => {
 
@@ -21,8 +21,12 @@ const Header = () => {
   };
 
   return (
-    <div className="header flex items-center justify-between px-5 bg-cyan-600 h-16">
-      <div className="logo">LOGO</div>
+    <div className="header flex items-center justify-between px-5 bg-[#234eb0] h-16">
+      <div className="logo">
+        <Link to="/">
+        <img className="rounded-full w-16 p-2" src={logo} alt="Site logo" />
+        </Link>
+      </div>
       <div className="welcome-message font-bold font-mono sm:text-xl text-center">
         Welome to ImageBook, {loggeduser ? loggeduser : "Guest"}
       </div>
