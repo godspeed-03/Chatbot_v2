@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // import sitelogo from '../../assets/sitelogo.png';
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 // import './login.css';
 
 const SignUp = () => {
@@ -8,6 +8,7 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate()
 
 
   // singup  form action method
@@ -40,6 +41,7 @@ const SignUp = () => {
       users.push(newUser);
 
       localStorage.setItem("users", JSON.stringify(users));
+      navigate('/login')
 
       alert("Sign-up successful! Please login.");
       document.getElementById("signup-form").reset();

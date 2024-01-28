@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useApiData } from "../../Utils/Context";
 
 const Login = () => {
   const [username, setUsername] = useState("");
