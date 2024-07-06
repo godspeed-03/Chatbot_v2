@@ -18,7 +18,6 @@ import {
 
 const Sharepost = ({ url, author }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [inputValue, setInputValue] = useState(url);
   const postInfo = `${author}'s post: ${url}`;
 
   const copyToClipboard = (text) => {
